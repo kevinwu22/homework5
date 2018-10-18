@@ -1,21 +1,7 @@
 document.addEventListener("keyup",myFunction,false)
 
-
-
 function myFunction(key){                  
     if (key.keyCode == "49"){        // Test using either 1 or 2 instead of + or -          
-            inflate();
-            console.log("")
-        }
-    else if (key.keyCode == "50"){
-            deflate();
-        }
-    else {
-            console.log("Error")
-         }
-    }
-
-function inflate(){
     var balloon = document.getElementById("balloon")
     var fontSize = window.getComputedStyle(balloon,null).getPropertyValue('font-size')
     var size = parseFloat(fontSize)
@@ -27,8 +13,7 @@ function inflate(){
             document.removeEventListener("keydown",myFunction)
         }       
     }
-
-function deflate(){
+    else if(key.keycode == "50")
     var balloon = document.getElementById("balloon")
     var fontSize = window.getComputedStyle(balloon,null).getPropertyValue('font-size')
     var size = parseFloat(fontSize)
