@@ -1,21 +1,40 @@
-var emoji = document.querySelector("#emoji");
-emoji.innerText = String.fromCodePoint(0x1F388);
-emoji.style.fontSize = "30px"; 
+document.addEventListener("keyup",myFunction,false)
 
-document.addEventListener('keyup',function(event) {
-if (event.key === 107) {
-    $(this).css({})
-}
-
-document.addEventListener('keydown',function(event) {
-    if (event.key === 109) {
-        $(this).css({})
+function myFunction(key){                  
+    if (key.keyCode == "49"){                  
+            inflate();
+            console.log("")
+        }
+    else if (key.keyCode == "50"){
+            deflate();
+        }
+    else {
+            console.log("Error")
+         }
     }
 
-const done = document.getElementById('once');
-done.addEventListener('keydown', remove);
-function remove(event) {
-console.log('Enjoy this while it lasts!');
-done.style.backgroundColor = 'pink';
-done.removeEventListener('click',remove);
-}
+function inflate(){
+    var balloon = document.getElementById("balloon")
+    var fontSize = window.getComputedStyle(balloon,null).getPropertyValue('font-size')
+    var size = parseFloat(fontSize)
+        if (size < 60){
+            document.getElementById("balloon").style.fontSize = (size + 15) + 'px'
+        }
+        else {
+            document.getElementById("balloon").innerHTML = "💥"
+            document.removeEventListener("keydown",myFunction)
+        }       
+    }
+
+function deflate(){
+    var balloon = document.getElementById("balloon")
+    var fontSize = window.getComputedStyle(balloon,null).getPropertyValue('font-size')
+    var size = parseFloat(fontSize)
+        if (size > 15){
+            document.getElementById("balloon").style.fontSize = (size - 15) + 'px'
+        }
+        else {
+            document.getElementById("balloon").innerHTML = "done"
+            document.removeEventListener("keydown",myFunction)
+        }
+    }   
