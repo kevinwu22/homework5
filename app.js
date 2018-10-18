@@ -1,7 +1,9 @@
 document.addEventListener("keyup",myFunction,false)
 
+
+
 function myFunction(key){                  
-    if (key.keyCode == "49"){                  
+    if (key.keyCode == "49"){        // Test using either 1 or 2 instead of + or -          
             inflate();
             console.log("")
         }
